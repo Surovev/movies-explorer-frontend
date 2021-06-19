@@ -1,0 +1,42 @@
+.tumb-checkbox {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+}
+
+.tumb-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    width: 36px;
+    height: 20px;
+    background: grey;
+    border-radius: 100px;
+    position: relative;
+    transition: background-color .2s;
+}
+
+.tumb-label .tumb-button {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 16px;
+    height: 16px;
+    border-radius: 16px;
+    transition: 0.2s;
+    background: #fff;
+
+    box-shadow: 0 0 2px 0 rgba(10, 10, 10, 0.29);
+}
+
+.tumb-checkbox:checked+.tumb-label .tumb-button {
+    left: calc(100% - 2px);
+
+    transform: translateX(-100%);
+}
+
+.tumb-label:active .tumb-button {
+    width: 32px;
+}

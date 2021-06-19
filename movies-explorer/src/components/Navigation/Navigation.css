@@ -1,0 +1,26 @@
+.navigation {
+    display: flex;
+    overflow: hidden;
+    margin: 0 10px;
+    max-width: 800px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+
+}
+
+.navigation__link {
+    display: block;
+    text-decoration: none;
+    color: #000;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 400;
+    margin: 0 10px;
+
+}
+
+.navigation__link:hover {
+    opacity: .6;
+    transition: .3s;
+}
