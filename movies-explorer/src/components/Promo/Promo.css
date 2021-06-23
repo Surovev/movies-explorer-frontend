@@ -1,0 +1,118 @@
+.promo__header {
+    height: 74px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #073042;
+    padding: 0 70px;
+}
+
+
+.promo__logo {
+    width: 38px;
+    height: 38px;
+}
+
+
+.promo__info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.promo__user-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 10px;
+
+}
+
+.promo__user-info:hover {
+    cursor: pointer;
+    opacity: .6;
+    transition: .3s;
+}
+
+.promo__user-info.hidden {
+    display: none;
+}
+
+
+.promo__link {
+    display: block;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 400;
+    margin: 0 10px;
+
+}
+
+.promo__link:hover {
+    opacity: .6;
+    transition: .3s;
+}
+
+.promo__user-icon-wrap {
+    width: 26px;
+    height: 30px;
+    background-color: #f5f5f5;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.promo__user-icon {
+    width: 11.5px;
+    height: 14px;
+}
+
+.promo__main {
+    background-color: #073042;
+    min-height: 524px;
+    display: flex;
+    align-items: center;
+    background-image: url(../../images/promo-background.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.promo__title {
+    color: #ffffff;
+    font-size: 50px;
+    line-height: 58px;
+    font-weight: 400;
+    max-width: 730px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.promo__nav-bar {
+    background-color: #000000;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.promo__nav-wrap {
+    display: flex;
+    padding: 24px 0;
+}
+
+.promo__nav-link {
+    font-size: 13px;
+    line-height: 16px;
+    font-weight: 500;
+    color: #ffffff;
+    text-decoration: none;
+    border-bottom: solid 1px #ffffff;
+    margin: 0 20px;
+    transition: .3s;
+}
+
+.promo__nav-link:hover {
+    opacity: .5;
+}

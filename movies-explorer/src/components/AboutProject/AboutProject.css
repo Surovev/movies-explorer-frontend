@@ -1,0 +1,85 @@
+.about-project {
+    width: 100%;
+    margin-bottom: 100px;
+    padding-top: 100px;
+}
+
+.title {
+    width: 100%;
+    border-bottom: 1px solid #000000;
+}
+
+.title__content {
+    font-size: 22px;
+    line-height: 27px;
+    font-weight: 400;
+    margin: 0 0 23px 0;
+}
+
+.about-project__row_two-col {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 110px;
+}
+
+.about-project__desc {
+    width: 48%;
+    margin-top: 70px;
+}
+
+.about-project__desc-title {
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 400;
+    margin: 0 0 26px 0;
+}
+
+.about-project__desc-subtitle {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+}
+
+.color-line {
+    display: flex;
+    width: 100%;
+}
+
+.color-line_first-type {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.color-line_second-type {
+    flex-grow: 4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.color-line__title {
+    padding: 9px 0;
+    margin: 0;
+    font-size: 14px;
+    line-height: 17px;
+    font-weight: 400;
+    width: 100%;
+    text-align: center;
+}
+
+.color-line__title.is-green {
+    background-color: #2BE080;
+}
+
+.color-line__title.is-grey {
+    background-color: #F2F2F2;
+}
+
+.color-line__subtitle {
+    font-size: 14px;
+    line-height: 17px;
+    font-weight: 500;
+    color: #A0A0A0;
+}
