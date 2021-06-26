@@ -1,9 +1,21 @@
+import { useHistory } from 'react-router-dom';
+
 import logo from '../../images/header-logo.svg';
 
 function Login () {
+  const history = useHistory();
+
+  function redirectSignUp () {
+    history.push('/sign-up');
+  }
+
+  function redirectHome () {
+    history.push('/');
+  }
+
   return (
     <div className='login'>
-      <img className='form__logo' src={logo} alt='логотип' />
+      <img className='form__logo' src={logo} alt='логотип' onClick={redirectHome} />
       <h2 className='form__title'>Рады видеть!</h2>
       <form className='forms'>
         <div className='form'>
@@ -21,7 +33,7 @@ function Login () {
         <button className='form-submit__btn'>Войти</button>
         <div className='form-submit__redirect'>
           <span className='form-submit__redirect-desc'>Еще не зарегистрированы?</span>
-          <a href='#' className='form-submit__redirect-link'>Регистрация</a>
+          <a href='#' className='form-submit__redirect-link' onClick={redirectSignUp}>Регистрация</a>
         </div>
       </form>
     </div>

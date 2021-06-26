@@ -1,41 +1,58 @@
 
+import React, { useState, useEffect } from 'react';
+import { Route, Switch, Redirect, useHistory } from 'react-router-dom';
+
 import '../../index.css';
-import Navigation from '../Navigation/Navigation';
-import Header from '../Header/Header.js';
-import Footer from '../Footer/Footer.js';
-import SearchForm from '../SearchForm/SearchForm.js';
-import MoviesCardList from '../MoviesCardList/MoviesCardList.js';
+
+import Movies from '../Movies/Movies.js';
 import Promo from '../Promo/Promo.js';
-import AboutProject from '../AboutProject/AboutProject.js';
-import Techs from '../Techs/Techs.js';
-import AboutMe from '../AboutMe/AboutMe.js';
-import Portfolio from '../Portfolio/Portfolio.js';
 import Profile from '../Profile/Profile.js';
 import Register from '../Register/Register.js';
 import Login from '../Login/Login.js';
-
-// <Header Navigation={Navigation} auth='true' />
+import ProtectedRoute from '../ProtectedRoute/ProtectedRoute.js';
+import SavedMovies from '../SavedMovies/SavedMovies.js';
+import Main from '../Main/Main.js';
 
 function App () {
+  const [loggedIn, setLoggedIn] = useState(true);
   return (
 
     <div className='page__content'>
-      <Login />
-      <Register />
-      <Header />
-      <Profile />
 
-      <Promo />
-      <div className='main'>
-        <AboutProject />
-        <Techs />
-        <AboutMe />
-        <Portfolio />
-        <SearchForm />
-        <MoviesCardList />
-        <div className='openspace' />
-        <Footer />
-      </div>
+      <Switch>
+
+        <ProtectedRoute
+          exact path='/'
+          loggedIn={loggedIn}
+          component={Main}
+        />
+        <Route path='/sign-in'>
+          <Login />
+        </Route>
+        <Route path='/sign-up'>
+          <Register />
+        </Route>
+
+        <Route path='/movies'>
+          <Movies />
+        </Route>
+        <Route path='/saved-movies'>
+          <SavedMovies />
+        </Route>
+        <Route path='/profile'>
+          <Profile />
+        </Route>
+        <Route>
+          {loggedIn ? (
+            <Redirect to='/' />
+          ) : (
+            <Redirect to='/sign-in' />
+          )}
+        </Route>
+
+      </Switch>
+      <div className='openspace' />
+
     </div>
   );
 }
