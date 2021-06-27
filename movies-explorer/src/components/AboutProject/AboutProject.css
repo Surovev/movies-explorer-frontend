@@ -82,3 +82,38 @@
     font-weight: 500;
     color: #A0A0A0;
 }
+
+@media screen and (max-width: 767px) {
+    .about-project__row_two-col {
+        flex-direction: column;
+    }
+
+    .about-project__desc-title {
+        font-size: 18px;
+        line-height: 22px;
+    }
+
+    .about-project__desc-subtitle {
+        font-size: 11px;
+        line-height: 16px;
+    }
+
+    .about-project {
+        margin-bottom: 100px;
+        padding: 100px 18px 0 18px;
+    }
+
+    .about-project__desc {
+        width: 100%;
+    }
+
+    .color-line__title {
+        font-size: 11px;
+        line-height: 13px;
+    }
+
+    .color-line__subtitle {
+        font-size: 11px;
+        line-height: 13px;
+    }
+}

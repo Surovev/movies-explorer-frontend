@@ -32,7 +32,7 @@
 }
 
 .portfolio__link:hover {
-    background-color: #2BE080;
+    opacity: .3;
 }
 
 .portfolio__link:last-child {
@@ -49,4 +49,33 @@
     position: absolute;
     right: 0;
     top: 35px;
+}
+
+@media screen and (max-width: 1023px) {
+    .portfolio {
+        padding: 0 30px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+
+    .portfolio {
+        padding: 0 14px;
+    }
+
+    .portfolio__title {
+        font-size: 14px;
+    }
+
+    .portfolio__link {
+        font-size: 18px;
+        line-height: 28px;
+    }
+
+    .portfolio__link::after {
+        width: 18px;
+        height: 28px;
+        top: 25px;
+    }
+
 }

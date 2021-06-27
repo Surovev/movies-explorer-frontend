@@ -2,6 +2,7 @@
     min-height: 72px;
     height: 100%;
     margin-top: 80px;
+    padding: 0 70px;
 }
 
 .footer__subtitle {
@@ -48,4 +49,39 @@
 .footer__social-link:hover {
     opacity: .6;
     transition: .3s;
+}
+
+@media screen and (max-width: 1023px) {
+    .footer {
+        padding: 0 30px;
+    }
+}
+
+
+@media screen and (max-width: 767px) {
+    .footer {
+        margin-bottom: 10px;
+        padding: 0 14px;
+    }
+
+    .footer__nav {
+        flex-direction: column-reverse;
+    }
+
+    .footer__nav {
+        height: auto;
+    }
+
+    .footer__social-bar {
+        flex-direction: column;
+        margin: 24px 0;
+    }
+
+    .footer__social-link {
+        margin: 6px auto;
+    }
+
+    .footer__copyright {
+        margin: 0 auto;
+    }
 }

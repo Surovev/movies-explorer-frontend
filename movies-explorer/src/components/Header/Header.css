@@ -54,3 +54,12 @@
     color: #000000;
     background-color: #2BE080;
 }
+
+@media screen and (max-width: 767px) {
+    .btn_type_auth {
+        font-size: 10px;
+        line-height: 16px;
+        min-width: 54px;
+        min-height: 26px;
+    }
+}

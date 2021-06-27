@@ -52,3 +52,41 @@
     line-height: 18px;
     margin-right: 14px;
 }
+
+
+
+@media screen and (max-width: 768px) {
+    .search-form {
+        padding: 60px 0;
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .search-form__input-wrap {
+        width: 100%;
+    }
+
+    .search-form__input {
+        width: 100%;
+        margin: 0 0 45px 0;
+        font-size: 14px;
+        line-height: 18px;
+    }
+
+    .search-form__submit-btn {
+        top: 8px;
+        right: 7px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .search-form__input {
+
+        font-size: 11px;
+
+    }
+
+    .search-form__tumb-label {
+        font-size: 11px;
+    }
+}

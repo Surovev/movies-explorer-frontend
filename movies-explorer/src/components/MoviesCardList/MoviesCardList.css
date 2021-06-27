@@ -49,3 +49,22 @@
 .btn_type_like.is-active {
     background-image: url(../../images/like-icon_is-active.svg);
 }
+
+
+@media screen and (max-width: 1279px) {
+    .movies-card-list__wrap {
+        grid-template-columns: 270px 270px 270px;
+    }
+}
+
+@media screen and (max-width: 1023px) {
+    .movies-card-list__wrap {
+        grid-template-columns: 270px 270px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .movies-card-list__wrap {
+        grid-template-columns: 270px;
+    }
+}
