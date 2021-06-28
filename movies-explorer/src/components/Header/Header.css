@@ -43,16 +43,16 @@
 .btn_type_auth {
     min-width: 76px;
     min-height: 32px;
-    color: #FFFFFF;
-    background-color: #073042;
+    color: #000000;
+    background-color: #FFFFFF;
     border-radius: 3px;
     transition: .3s;
     margin-left: 10px;
 }
 
 .btn_type_auth:hover {
-    color: #000000;
-    background-color: #2BE080;
+    color: #FFFFFF;
+    background-color: #000000;
 }
 
 @media screen and (max-width: 767px) {

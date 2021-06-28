@@ -45,7 +45,8 @@
 }
 
 .techs__link:hover {
-    background-color: #2BE080;
+    color: #FFFFFF;
+    background-color: #000000;
 }
 
 @media screen and (max-width: 1023px) {

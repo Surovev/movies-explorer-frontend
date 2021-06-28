@@ -16,7 +16,7 @@ function AboutProject () {
       </div>
       <div className='color-line'>
         <div className='color-line_first-type'>
-          <h6 className='color-line__title is-green'>1 неделя</h6>
+          <h6 className='color-line__title is-black'>1 неделя</h6>
           <p className='color-line__subtitle'>Back-end</p>
         </div>
         <div className='color-line_second-type'>

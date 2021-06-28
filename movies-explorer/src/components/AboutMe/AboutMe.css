@@ -91,7 +91,7 @@
 
     .about-me__img-wrapper {
         height: 352px;
-        width: 292px;
+        width: 100%;
         margin: 0 auto 40px auto;
     }
 

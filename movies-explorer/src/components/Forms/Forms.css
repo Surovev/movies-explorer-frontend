@@ -1,5 +1,6 @@
 .form__logo {
-    margin: 70px 0 40px;
+    display: block;
+    margin: 56px 0 50px;
 }
 
 .form__title {
@@ -64,7 +65,7 @@
 .form-submit__btn {
     height: 45px;
     border-radius: 3px;
-    background-color: #3456F3;
+    background-color: #000000;
     border: none;
     color: #FFFFFF;
     font-size: 14px;
@@ -96,7 +97,7 @@
     font-size: 14px;
     line-height: 17px;
     font-weight: 400;
-    color: #3456F3;
+    color: #000000;
     text-decoration: none;
     transition: .3s;
 }
@@ -122,5 +123,9 @@
     .form-submit__redirect-link {
         font-size: 12px;
         line-height: 14.5px;
+    }
+
+    .form__logo {
+        margin: 56px auto 50px;
     }
 }

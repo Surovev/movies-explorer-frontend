@@ -38,14 +38,15 @@ function Promo () {
       </div>
       <div className='promo__main'>
         <h3 className='promo__title'>Учебный проект студента факультета Веб-разработки.</h3>
+        <nav className='promo__nav-bar'>
+          <div className='promo__nav-wrap'>
+            <a className='promo__nav-link' href='#about-project'>О проекте</a>
+            <a className='promo__nav-link' href='#techs'>Технологии</a>
+            <a className='promo__nav-link' href='#about-me'>Студент</a>
+          </div>
+        </nav>
       </div>
-      <nav className='promo__nav-bar'>
-        <div className='promo__nav-wrap'>
-          <a className='promo__nav-link' href='#about-project'>О проекте</a>
-          <a className='promo__nav-link' href='#techs'>Технологии</a>
-          <a className='promo__nav-link' href='#about-me'>Студент</a>
-        </div>
-      </nav>
+
     </div>
   );
 }

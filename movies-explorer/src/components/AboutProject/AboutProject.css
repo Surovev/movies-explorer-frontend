@@ -68,8 +68,9 @@
     text-align: center;
 }
 
-.color-line__title.is-green {
-    background-color: #2BE080;
+.color-line__title.is-black {
+    color: #FFFFFF;
+    background-color: #000000;
 }
 
 .color-line__title.is-grey {
