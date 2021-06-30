@@ -20,12 +20,12 @@ function Login () {
       <form className='forms'>
         <div className='form'>
           <span className='form__desc'>E-mail</span>
-          <input className='form__input' placeholder='Введите e-mail' type='email' />
+          <input required className='form__input' placeholder='Введите e-mail' type='email' />
           <span className='form__desc form__desc_type_error is-hidden'>Что-то пошло не так</span>
         </div>
         <div className='form'>
           <span className='form__desc'>Пароль</span>
-          <input className='form__input form__input_type_error' placeholder='Введите пароль' type='password' />
+          <input required className='form__input form__input_type_error' placeholder='Введите пароль' type='password' />
           <span className='form__desc form__desc_type_error'>Что-то пошло не так</span>
         </div>
       </form>
