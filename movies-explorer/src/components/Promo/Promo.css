@@ -129,6 +129,8 @@
     }
 }
 
+/* Фон блока пропадает на разрешении менее 768px согласно макету */
+
 @media screen and (max-width: 767px) {
     .promo__title {
         font-size: 27px;
@@ -136,7 +138,7 @@
     }
 
     .promo__main {
-        margin: 0;
+        margin: 0 5px;
         background-color: #ffffff;
     }
 

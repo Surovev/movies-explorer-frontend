@@ -5,6 +5,8 @@
     overflow: hidden;
 }
 
+
+
 .movie__img {
     width: 270px;
     height: 150px;
@@ -30,7 +32,11 @@
 
 }
 
-.movie__like {
+.movie:hover .movie__button-delete {
+    display: block;
+}
+
+.movie__button-like {
     width: 24px;
     height: 24px;
     border-radius: 12px;
@@ -38,8 +44,18 @@
     position: relative;
 }
 
+.movie__button-delete {
+    width: 24px;
+    height: 24px;
+    border-radius: 12px;
+    background-color: #F5F5F5;
+    position: relative;
+    display: none;
+}
 
-.movie__like:hover {
+
+
+.movie__button:hover {
     cursor: pointer;
 }
 

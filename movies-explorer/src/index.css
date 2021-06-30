@@ -21,11 +21,11 @@
 @import url(./components/SavedMovies/SavedMovies.css);
 @import url(./components/Preloader/Preloader.css);
 @import url(./components/Forms/Forms.css);
+@import url(./components/NotFoundPage/NotFoundPage.css);
+@import url(./components/Btn/Btn.css);
 
 
-.openspace {
-  flex-grow: 1;
-}
+
 
 .page__content {
   min-height: 100vh;

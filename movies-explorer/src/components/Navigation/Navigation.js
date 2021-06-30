@@ -8,12 +8,17 @@ function Navigation () {
   var iconClassName = `navigation__mobile-icon ${menuIsClose ? 'is-close' : ''} `;
   var overlayClassname = `navigation__overlay ${menuIsClose ? 'is-close' : ''} `;
   var navigationClassName = `navigation ${menuIsClose ? 'is-close' : ''} `;
+  var navigationLinkClassName = `navigation__link ${menuIsClose ? 'is-close' : ''} `;
 
   function menuHandler () {
     menuIsClose ? setMenuIsClose(false) : setMenuIsClose(true);
   }
 
   const history = useHistory();
+
+  function redirectHome () {
+    history.push('/');
+  }
 
   function redirectMovies () {
     history.push('/movies');
@@ -32,12 +37,13 @@ function Navigation () {
       <div className={overlayClassname}>
         <div className={navigationClassName}>
           <nav className='navigation__links'>
-            <a href='#' className='navigation__link' onClick={redirectMovies}>Фильмы</a>
-            <a href='#' className='navigation__link' onClick={redirectSavedMovies}>Сохраненные фильмы</a>
+            <p className={navigationLinkClassName} onClick={redirectHome}>Главная</p>
+            <p className='navigation__link' onClick={redirectMovies}>Фильмы</p>
+            <p href='#' className='navigation__link' onClick={redirectSavedMovies}>Сохраненные фильмы</p>
 
           </nav>
           <div className='navigation__user-info'>
-            <a href='#' className='navigation__user-link' onClick={redirectProfile}>Аккаунт</a>
+            <p className='navigation__user-link' onClick={redirectProfile}>Аккаунт</p>
             <div className='navigation__user-icon-wrap'>
               <img className='navigation__user-icon' src={profileIcon} alt='user icon' />
             </div>

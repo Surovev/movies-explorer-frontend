@@ -15,12 +15,12 @@ function AboutMe () {
                 начал заниматься фриланс-заказами и ушёл с постоянной работы.
           </p>
           <div className='about-me__social-links'>
-            <a href='#' className='about-me__social-link'>Facebook</a>
-            <a href='#' className='about-me__social-link'>Github</a>
+            <a href='https://www.facebook.com/dmitrii.alabam.7' className='about-me__social-link'>Facebook</a>
+            <a href='https://github.com/Surovev' className='about-me__social-link'>Github</a>
           </div>
         </div>
         <div className='about-me__img-wrapper'>
-          <img className='about-me__img' src='http://placekitten.com/276/344' />
+          <img className='about-me__img' src='http://placekitten.com/276/344' alt='avatar' />
         </div>
       </div>
     </div>

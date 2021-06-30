@@ -103,6 +103,7 @@
 }
 
 .form-submit__redirect-link:hover {
+    cursor: pointer;
     opacity: .5;
 }
 

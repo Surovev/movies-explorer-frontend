@@ -1,25 +1,13 @@
 import film from '../../images/film.jpg';
 import React from 'react';
 
-function Movie () {
-  const [isLiked, setIsLiked] = React.useState(false);
-  const movieLikeButtonClassName = `btn btn_type_like ${isLiked ? 'is-active' : ''}`;
-
-  function toggleLike () {
-    if (isLiked === false) {
-      setIsLiked(true);
-    } else {
-      setIsLiked(false);
-    }
-  }
+function Movie (props) {
   return (
     <div className='movie'>
-      <img className='movie__img' src={film} />
+      <img className='movie__img' alt='movie' src={film} />
       <div className='movie__bottom-part'>
         <p className='movie__subtitle'>33 Коровы и 12 утят</p>
-        <div className='movie__like' onClick={toggleLike}>
-          <button className={movieLikeButtonClassName} />
-        </div>
+        {props.children}
       </div>
       <p className='movie__duration'>1h24m</p>
     </div>
@@ -27,3 +15,9 @@ function Movie () {
 }
 
 export default Movie;
+
+{ /* <button className={movieLikeButtonClassName} /> */ }
+
+{ /* <div className='movie__button-delete' onClick={toggleLike}>
+<button className='btn btn_type_delete' />
+</div> */ }

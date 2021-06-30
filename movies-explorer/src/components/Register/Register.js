@@ -37,7 +37,7 @@ function Login () {
         <button className='form-submit__btn'>Зарегистрироваться</button>
         <div className='form-submit__redirect'>
           <span className='form-submit__redirect-desc'>Уже зарегистрированы?</span>
-          <a href='#' className='form-submit__redirect-link' onClick={redirectSignIn}>Войти</a>
+          <span className='form-submit__redirect-link' onClick={redirectSignIn}>Войти</span>
         </div>
       </form>
     </div>

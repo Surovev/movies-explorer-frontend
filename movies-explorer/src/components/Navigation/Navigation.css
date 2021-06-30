@@ -35,8 +35,13 @@
 }
 
 .navigation__link:hover {
+    cursor: pointer;
     opacity: .6;
 
+}
+
+.navigation__link.is-close {
+    display: none;
 }
 
 .navigation__user-link {
@@ -50,10 +55,20 @@
     transition: .3s;
 }
 
+/* .navigation__user-link:hover {
+    cursor: pointer;
+    opacity: .6;
+} */
+
 .navigation__user-info {
     display: flex;
     align-items: center;
 
+}
+
+.navigation__user-info:hover {
+    cursor: pointer;
+    opacity: .6;
 }
 
 .navigation__user-icon-wrap {
@@ -67,11 +82,11 @@
     transition: .3s;
 }
 
-.navigation__user-icon-wrap:hover {
+/* .navigation__user-icon-wrap:hover {
     cursor: pointer;
     opacity: .6;
 
-}
+} */
 
 .navigation__user-icon {
     width: 11.5px;
@@ -190,4 +205,10 @@
     }
 
     .navigation__user-link {}
+
+    @media screen and (max-width: 480px) {
+        .navigation {
+            width: 100%;
+        }
+    }
 }

@@ -5,13 +5,13 @@ import { Route, Switch, Redirect, useHistory } from 'react-router-dom';
 import '../../index.css';
 
 import Movies from '../Movies/Movies.js';
-import Promo from '../Promo/Promo.js';
 import Profile from '../Profile/Profile.js';
 import Register from '../Register/Register.js';
 import Login from '../Login/Login.js';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute.js';
 import SavedMovies from '../SavedMovies/SavedMovies.js';
 import Main from '../Main/Main.js';
+import NotFoundPage from '../NotFoundPage/NotFoundPage.js';
 
 function App () {
   const [loggedIn, setLoggedIn] = useState(true);
@@ -32,6 +32,9 @@ function App () {
         <Route path='/sign-up'>
           <Register />
         </Route>
+        <Route path='/not-found'>
+          <NotFoundPage />
+        </Route>
 
         <Route path='/movies'>
           <Movies />
@@ -51,7 +54,6 @@ function App () {
         </Route>
 
       </Switch>
-      <div className='openspace' />
 
     </div>
   );
