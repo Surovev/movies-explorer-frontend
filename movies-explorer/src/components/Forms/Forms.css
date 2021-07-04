@@ -79,6 +79,15 @@
     cursor: pointer;
 }
 
+.form-submit__btn_disabled {
+    opacity: .1;
+}
+
+.form-submit__btn_disabled:hover {
+    opacity: .1;
+
+}
+
 .form-submit__redirect {
     display: flex;
     justify-content: center;
@@ -105,6 +114,11 @@
 .form-submit__redirect-link:hover {
     cursor: pointer;
     opacity: .5;
+}
+
+.form__response-error {
+    margin: 0 auto 10px auto;
+    color: #FF3055;
 }
 
 
