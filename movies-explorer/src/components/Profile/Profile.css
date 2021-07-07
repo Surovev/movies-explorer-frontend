@@ -24,6 +24,7 @@
 }
 
 .profile__info-row {
+    position: relative;
     display: flex;
     justify-content: space-between;
     min-width: 410px;
@@ -40,8 +41,27 @@
     font-weight: 500;
 }
 
-.profile__info-item_value {
+.profile__input {
+    font-size: 11px;
+    line-height: 40px;
     font-weight: 400;
+    text-align: end;
+    border: none;
+}
+
+.profile__input::placeholder {
+    font-size: 11px;
+    line-height: 40px;
+    font-weight: 400;
+    text-align: end;
+}
+
+.profile__input:focus {
+    outline: none;
+}
+
+.profile-input-error {
+    position: absolute;
 }
 
 .profile__links {
@@ -49,12 +69,17 @@
 }
 
 .profile__link {
-    margin: 0;
+    background-color: #ffffff;
+    border: none;
+    display: block;
+    margin: 0 auto;
     text-align: center;
     font-size: 13px;
     line-height: 16px;
     transition: .3s;
 }
+
+.profile__link_disabled {}
 
 .profile__link_is-red {
     color: #FF004D;

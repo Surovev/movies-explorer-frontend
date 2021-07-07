@@ -15,19 +15,34 @@ import Main from '../Main/Main.js';
 import NotFoundPage from '../NotFoundPage/NotFoundPage.js';
 import { register, authorize, getContent } from '../../utils/moviesAuth.js';
 import checkResponse from '../../utils/checkResponse';
+import { setUserInfo } from '../../utils/MainApi.js';
 
 function App () {
   const history = useHistory();
   const [currentUser, setCurrentUser] = React.useState({});
-  const [loggedIn, setLoggedIn] = useState(true);
+  const [loggedIn, setLoggedIn] = useState(false);
   // const [isInfoToolTipOpen, setIsInfoToolTipOpen] = React.useState(false);
+  const [dataMovies, setDataMovies] = React.useState([]);
   const [toolTipState, setToolTipState] = React.useState({ type: '', text: '' });
   const [authToken, setAuthToken] = useState(window.localStorage.getItem('jwt'));
   const [onError, setOnError] = React.useState('');
+  const [authUser, setAuthUser] = React.useState({});
 
   // function handleInfoToolTip () {
   //   setIsInfoToolTipOpen(true);
   // }
+
+  React.useEffect(() => {
+    if (authToken) {
+      console.log(authToken);
+      getContent(authToken).then(({ data }) => {
+        setCurrentUser(data);
+      })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  }, [authToken]);
 
   const handleLogin = ({ password, email }) => {
     authorize({ email, password })
@@ -35,6 +50,7 @@ function App () {
         if (data.token) {
           setAuthToken(data.token);
           window.localStorage.setItem('jwt', data.token);
+          setLoggedIn(true);
           history.push('/movies');
           // tokenCheck();
         } else {
@@ -42,6 +58,34 @@ function App () {
         }
       });
   };
+
+  const unAutorization = () => {
+    if (authToken) {
+      console.log(currentUser);
+      setAuthToken(window.localStorage.removeItem('jwt'));
+
+      setCurrentUser({ email: 'rerere', name: 'dcedcece' });
+      setLoggedIn(false);
+      setAuthUser({});
+      console.log(currentUser);
+      history.push('/');
+    }
+  };
+
+  useEffect(() => {
+    if (authToken) {
+      console.log(authToken);
+      console.log(currentUser);
+      getContent(authToken).then((data) => {
+        if (data) {
+          // api.setAutorization(authToken);
+          setLoggedIn(true);
+          setAuthUser(data.data);
+          // history.push('/movies');
+        }
+      });
+    }
+  }, [loggedIn]);
 
   const handleRegister = ({ name, password, email }) => {
     return register({ name, password, email }).then((res) => {
@@ -57,17 +101,22 @@ function App () {
     });
   };
 
+  function handleUpdateUser (name) {
+    setUserInfo(name, authToken)
+      .then(res => {
+        setCurrentUser(res);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className='page__content'>
 
         <Switch>
 
-          <ProtectedRoute
-            exact path='/'
-            loggedIn={loggedIn}
-            component={Main}
-          />
           <Route path='/sign-in'>
             <Login onLogin={handleLogin} errorMessage={onError} />
           </Route>
@@ -77,23 +126,25 @@ function App () {
           <Route path='/not-found'>
             <NotFoundPage />
           </Route>
-
+          <Route exact path='/'>
+            <Main loggedIn={loggedIn} />
+          </Route>
           <Route path='/movies'>
-            <Movies />
+            <Movies authUser={authUser} movies={dataMovies} setMovies={setDataMovies} />
           </Route>
           <Route path='/saved-movies'>
-            <SavedMovies />
+            <SavedMovies authUser={authUser} movies={dataMovies} setMovies={setDataMovies} />
           </Route>
           <Route path='/profile'>
-            <Profile />
+            <Profile unAutorization={unAutorization} handleUpdateUser={handleUpdateUser} />
           </Route>
-          <Route>
+          {/* <Route>
             {loggedIn ? (
               <Redirect to='/' />
             ) : (
               <Redirect to='/sign-in' />
             )}
-          </Route>
+          </Route> */}
 
         </Switch>
 

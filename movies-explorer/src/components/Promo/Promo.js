@@ -1,9 +1,10 @@
 import { useHistory } from 'react-router-dom';
 
+import Navigation from '../Navigation/Navigation.js';
 import logo from '../../images/promo-logo.svg';
 import profileIcon from '../../images/profile-icon.svg';
 
-function Promo () {
+function Promo (props) {
   const history = useHistory();
 
   function redirectSignIn () {
@@ -18,19 +19,18 @@ function Promo () {
     history.push('/profile');
   }
 
+  const navigationClassName = (`${props.loggedIn ? '' : 'promo__navigation_hidden'}`);
+  const promoAuthClassName = (`${props.loggedIn ? 'promo__auth_hidden' : ''}`);
+
   return (
     <div className='promo'>
       <div className='promo__header'>
         <img className='promo__logo' src={logo} alt='логотип' />
         <div className='promo__info'>
-
-          <div className='promo__user-info hidden'>
-            <a href='#' className='promo__link' onClick={redirectProfile}>Аккаунт</a>
-            <div className='promo__user-icon-wrap'>
-              <img className='promo__user-icon' src={profileIcon} alt='user icon' />
-            </div>
+          <div className={navigationClassName}>
+            <Navigation />
           </div>
-          <div className='promo__auth'>
+          <div className={promoAuthClassName}>
             <button className='btn btn_type_auth' onClick={redirectSignUp}>Регистрация</button>
             <button className='btn btn_type_auth' onClick={redirectSignIn}>Войти</button>
           </div>

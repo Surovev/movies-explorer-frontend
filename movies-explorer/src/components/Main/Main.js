@@ -5,10 +5,10 @@ import AboutMe from '../AboutMe/AboutMe.js';
 import Portfolio from '../Portfolio/Portfolio.js';
 import Footer from '../Footer/Footer.js';
 
-function Main () {
+function Main (props) {
   return (
     <div className='main'>
-      <Promo />
+      <Promo loggedIn={props.loggedIn} />
       <AboutProject />
       <Techs />
       <AboutMe />

@@ -1,4 +1,4 @@
-export const BASE_URL = 'https://api.surovev-diploma.nomoredomains.monster';
+const BASE_URL = 'https://api.surovev-diploma.nomoredomains.monster';
 const checkResponse = require('../utils/checkResponse');
 
 export const register = ({ name, password, email }) => {
@@ -31,3 +31,5 @@ export const getContent = (token) => {
   })
     .then(checkResponse);
 };
+
+export default BASE_URL;

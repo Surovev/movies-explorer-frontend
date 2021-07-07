@@ -4,12 +4,12 @@ import React from 'react';
 function Movie (props) {
   return (
     <div className='movie'>
-      <img className='movie__img' alt='movie' src={film} />
+      <img className='movie__img' alt='movie' src={' https://api.nomoreparties.co' + props.image} />
       <div className='movie__bottom-part'>
-        <p className='movie__subtitle'>33 Коровы и 12 утят</p>
+        <p className='movie__subtitle'>{props.nameRU}</p>
         {props.children}
       </div>
-      <p className='movie__duration'>1h24m</p>
+      <p className='movie__duration'>{props.duration}m</p>
     </div>
   );
 }

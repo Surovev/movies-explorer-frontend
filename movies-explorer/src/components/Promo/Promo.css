@@ -6,6 +6,14 @@
     padding: 0 70px;
 }
 
+.promo__auth_hidden {
+    display: none;
+}
+
+.promo__navigation_hidden {
+    display: none;
+}
+
 
 .promo__logo {
     width: 38px;
@@ -68,6 +76,8 @@
     width: 11.5px;
     height: 14px;
 }
+
+
 
 .promo__main {
     margin: 20px 40px 0;

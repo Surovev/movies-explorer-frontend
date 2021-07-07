@@ -38,15 +38,20 @@
     border-radius: 17px;
     border: none;
     background-position: center;
+    transition: .3s;
     position: absolute;
     top: 7px;
     right: 0;
 }
 
+.search-form__submit-btn_disabled {
+    opacity: .3;
+}
+
 .search-form__submit-btn:hover {
     cursor: pointer;
     opacity: .6;
-    transition: .3s;
+
 }
 
 .search-form__check-box {
@@ -58,6 +63,14 @@
     font-size: 13px;
     line-height: 18px;
     margin: 0 14px;
+}
+
+.search-form__error {
+    position: absolute;
+    top: 50px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #FF4062;
 }
 
 @media screen and (max-width: 1024px) {

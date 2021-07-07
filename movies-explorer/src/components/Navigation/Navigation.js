@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
 import profileIcon from '../../images/profile-icon.svg';
 
@@ -13,6 +14,8 @@ function Navigation () {
   function menuHandler () {
     menuIsClose ? setMenuIsClose(false) : setMenuIsClose(true);
   }
+
+  const currentUser = React.useContext(CurrentUserContext);
 
   const history = useHistory();
 
@@ -48,12 +51,6 @@ function Navigation () {
               <img className='navigation__user-icon' src={profileIcon} alt='user icon' />
             </div>
           </div>
-
-        </div>
-        <div className='header__auth hidden'>
-          {/*
-        <button className='btn btn_type_auth'>Регистрация</button>
-        <button className='btn btn_type_auth'>Войти</button> */}
         </div>
       </div>
       <i class={iconClassName} onClick={menuHandler} />

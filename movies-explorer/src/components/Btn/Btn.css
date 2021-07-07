@@ -11,6 +11,10 @@
 
 }
 
+.btn.hidden {
+    display: none;
+}
+
 .btn_type_long {
     height: 36px;
     width: 100%;
