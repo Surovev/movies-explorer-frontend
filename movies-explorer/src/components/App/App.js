@@ -10,21 +10,23 @@ import Profile from '../Profile/Profile.js';
 import Register from '../Register/Register.js';
 import Login from '../Login/Login.js';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute.js';
+import { setUserInfo, addMovie, deleteMovie, getSavedMovies, setAuthToken } from '../../utils/MainApi.js';
 import SavedMovies from '../SavedMovies/SavedMovies.js';
 import Main from '../Main/Main.js';
 import NotFoundPage from '../NotFoundPage/NotFoundPage.js';
-import { register, authorize, getContent } from '../../utils/moviesAuth.js';
+import { register, authorize, getContent } from '../../utils/MainApi';
 import checkResponse from '../../utils/checkResponse';
-import { setUserInfo } from '../../utils/MainApi.js';
+import Preloader from '../Preloader/Preloader.js';
 
 function App () {
   const history = useHistory();
   const [currentUser, setCurrentUser] = React.useState({});
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(!!window.localStorage.getItem('jwt'));
   // const [isInfoToolTipOpen, setIsInfoToolTipOpen] = React.useState(false);
   const [dataMovies, setDataMovies] = React.useState([]);
+  const [idSavedMovies, setIdSavedMovies] = React.useState([]);
   const [toolTipState, setToolTipState] = React.useState({ type: '', text: '' });
-  const [authToken, setAuthToken] = useState(window.localStorage.getItem('jwt'));
+  const [loading, setLoading] = React.useState(false);
   const [onError, setOnError] = React.useState('');
   const [authUser, setAuthUser] = React.useState({});
 
@@ -33,16 +35,16 @@ function App () {
   // }
 
   React.useEffect(() => {
-    if (authToken) {
-      console.log(authToken);
-      getContent(authToken).then(({ data }) => {
+    if (loggedIn) {
+      console.log(loggedIn);
+      getContent().then(({ data }) => {
         setCurrentUser(data);
       })
         .catch((error) => {
           console.log(error);
         });
     }
-  }, [authToken]);
+  }, [loggedIn]);
 
   const handleLogin = ({ password, email }) => {
     authorize({ email, password })
@@ -60,7 +62,7 @@ function App () {
   };
 
   const unAutorization = () => {
-    if (authToken) {
+    if (loggedIn) {
       console.log(currentUser);
       setAuthToken(window.localStorage.removeItem('jwt'));
 
@@ -72,15 +74,24 @@ function App () {
     }
   };
 
+  // const handleMovieLike = (movie) => {
+
+  // }
+
   useEffect(() => {
-    if (authToken) {
-      console.log(authToken);
+    if (loggedIn) {
       console.log(currentUser);
-      getContent(authToken).then((data) => {
+
+      getContent().then((data) => {
         if (data) {
           // api.setAutorization(authToken);
           setLoggedIn(true);
           setAuthUser(data.data);
+
+          getSavedMovies().then(data => setIdSavedMovies(data.map(item => item.id))).catch((error) => {
+            console.log(error);
+          });
+
           // history.push('/movies');
         }
       });
@@ -102,7 +113,7 @@ function App () {
   };
 
   function handleUpdateUser (name) {
-    setUserInfo(name, authToken)
+    setUserInfo(name)
       .then(res => {
         setCurrentUser(res);
       })
@@ -111,11 +122,51 @@ function App () {
       });
   }
 
+  // function handleCardLike (movie) {
+  //   const isLiked = savedMovies.id.some(i => i === movie.id);
+  //   if (!isLiked) {
+  //     api.addLike(card._id).then((newCard) => {
+  //       setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
+  //     }).catch((error) => {
+  //       errorPopup(error);
+  //     });
+  //   } else {
+  //     api.removeLike(card._id).then((newCard) => {
+  //       setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
+  //     }).catch((error) => {
+  //       errorPopup(error);
+  //     });
+  //   }
+  // }
+
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className='page__content'>
 
         <Switch>
+          <ProtectedRoute
+            exact path='/movies'
+            component={Movies}
+            setLoading={setLoading}
+            savedMovies={false}
+            movies={dataMovies}
+            setMovies={setDataMovies}
+            loggedIn={loggedIn}
+          />
+          <ProtectedRoute
+            exact path='/saved-movies'
+            component={SavedMovies}
+            savedMovies
+            authUser={authUser}
+            movies={dataMovies}
+            setMovies={setDataMovies}
+            loggedIn={loggedIn}
+          />
+          <ProtectedRoute
+            exact path='/'
+            component={Main}
+            loggedIn={loggedIn}
+          />
 
           <Route path='/sign-in'>
             <Login onLogin={handleLogin} errorMessage={onError} />
@@ -126,15 +177,7 @@ function App () {
           <Route path='/not-found'>
             <NotFoundPage />
           </Route>
-          <Route exact path='/'>
-            <Main loggedIn={loggedIn} />
-          </Route>
-          <Route path='/movies'>
-            <Movies authUser={authUser} movies={dataMovies} setMovies={setDataMovies} />
-          </Route>
-          <Route path='/saved-movies'>
-            <SavedMovies authUser={authUser} movies={dataMovies} setMovies={setDataMovies} />
-          </Route>
+
           <Route path='/profile'>
             <Profile unAutorization={unAutorization} handleUpdateUser={handleUpdateUser} />
           </Route>
@@ -147,6 +190,7 @@ function App () {
           </Route> */}
 
         </Switch>
+        <Preloader loading={loading} />
 
       </div>
     </CurrentUserContext.Provider>

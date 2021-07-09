@@ -7,6 +7,14 @@
     margin: 70px 0 60px 0;
 }
 
+.movies-card-list__error {
+    display: block;
+    text-align: center;
+    margin: 30px auto;
+    font-size: 24px;
+    font-weight: 500;
+}
+
 
 
 @media screen and (max-width: 1279px) {
