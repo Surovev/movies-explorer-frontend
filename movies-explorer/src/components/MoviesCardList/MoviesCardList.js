@@ -41,14 +41,15 @@ function MoviesCardList (props) {
   return (
     <div className='movies-card-list'>
       <div className='movies-card-list__wrap'>
-        {props.movies.slice(0, resultCount).map(item => (<Movie
-          setSavedMovies={props.setSavedMovies}
-          savedMovies={props.savedMovies}
-          movie={item} link={item.trailerLink}
-          key={item.id} image={item.image.url}
-          nameRU={item.nameRU}
-          duration={item.duration}
-        />))}
+        {props.movies.slice(0, resultCount).map(item => (
+          <Movie
+            setSavedMovies={props.setSavedMovies}
+            savedMovies={props.savedMovies}
+            movie={item} link={item.trailerLink}
+            key={item.id} image={item.image.url}
+            nameRU={item.nameRU}
+            duration={item.duration}
+          />))}
 
       </div>
       <button className={moreBtnClassName} onClick={moreResultHendler}>Ещё</button>

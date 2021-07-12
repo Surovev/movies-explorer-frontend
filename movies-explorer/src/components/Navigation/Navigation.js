@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useHistory } from 'react-router-dom';
-import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
 import profileIcon from '../../images/profile-icon.svg';
 
@@ -14,8 +13,6 @@ function Navigation () {
   function menuHandler () {
     menuIsClose ? setMenuIsClose(false) : setMenuIsClose(true);
   }
-
-  const currentUser = React.useContext(CurrentUserContext);
 
   const history = useHistory();
 
@@ -53,7 +50,7 @@ function Navigation () {
           </div>
         </div>
       </div>
-      <i class={iconClassName} onClick={menuHandler} />
+      <i className={iconClassName} onClick={menuHandler} />
 
     </>
 

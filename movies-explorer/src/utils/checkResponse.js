@@ -5,6 +5,7 @@ const checkResponse = (res) => {
   return res.json().then((data) => {
     if (data.message) {
       console.log(data.message);
+      console.log(data.status);
       return `Ошибка: ${data.message}`;
     } else {
       throw Promise.reject(`Ошибка: ${res.status}`);

@@ -23,12 +23,12 @@
     margin: 0 0 100px 0;
 }
 
-.techs__links {
+.techs__icons {
     display: flex;
     margin: 0 0 100px 0;
 }
 
-.techs__link {
+.techs__icon {
     display: block;
     margin: 5px 5px;
     text-decoration: none;
@@ -44,7 +44,8 @@
     transition: .3s;
 }
 
-.techs__link:hover {
+.techs__icon:hover {
+    cursor: pointer;
     color: #FFFFFF;
     background-color: #000000;
 }
@@ -74,14 +75,14 @@
         line-height: 16px;
     }
 
-    .techs__links {
+    .techs__icons {
         display: grid;
         grid-template-columns: 84px 84px;
         grid-row-gap: 10px;
         grid-column-gap: 10px;
     }
 
-    .techs__link {
+    .techs__icon {
         margin: 0;
         width: 84px;
         height: 60px;

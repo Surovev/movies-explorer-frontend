@@ -1,6 +1,5 @@
-import film from '../../images/film.jpg';
 import React from 'react';
-import { setUserInfo, addMovie, deleteMovie, getMovies } from '../../utils/MainApi.js';
+import { addMovie, deleteMovie } from '../../utils/MainApi.js';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
 function Movie (props) {
@@ -47,11 +46,3 @@ function Movie (props) {
 }
 
 export default Movie;
-
-//
-
-{ /* <button className={movieLikeButtonClassName} /> */ }
-
-{ /* <div className='movie__button-delete' onClick={toggleLike}>
-<button className='btn btn_type_delete' />
-</div> */ }

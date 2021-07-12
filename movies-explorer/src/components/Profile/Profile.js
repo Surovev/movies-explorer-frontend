@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Header from '../Header/Header.js';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import { useForm } from 'react-hook-form';
@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form';
 function Profile (props) {
   const currentUser = React.useContext(CurrentUserContext);
 
-  const { register, handleSubmit, formState: { isSubmitting, isDirty, isValid, errors } } = useForm({ mode: 'onChange' });
+  const { register, handleSubmit, formState: { isDirty, isValid, errors } } = useForm({ mode: 'onChange' });
 
   const submitButtonClassName = `profile__link ${!isDirty || !isValid ? 'profile__link_disabled' : ''}`;
 

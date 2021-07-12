@@ -2,7 +2,6 @@ import { useHistory } from 'react-router-dom';
 
 import Navigation from '../Navigation/Navigation.js';
 import logo from '../../images/promo-logo.svg';
-import profileIcon from '../../images/profile-icon.svg';
 
 function Promo (props) {
   const history = useHistory();
@@ -13,10 +12,6 @@ function Promo (props) {
 
   function redirectSignUp () {
     history.push('/sign-up');
-  }
-
-  function redirectProfile () {
-    history.push('/profile');
   }
 
   const navigationClassName = (`${props.loggedIn ? '' : 'promo__navigation_hidden'}`);

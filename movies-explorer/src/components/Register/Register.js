@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useForm } from 'react-hook-form';
 
-import { useHistory, Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import logo from '../../images/header-logo.svg';
 
 function Register (props) {
-  const { register, handleSubmit, formState: { isSubmitting, isDirty, isValid, errors } } = useForm({ mode: 'onChange' });
+  const { register, handleSubmit, formState: { isDirty, isValid, errors } } = useForm({ mode: 'onChange' });
 
   const submitButtonClassName = `form-submit__btn ${!isDirty || !isValid ? 'form-submit__btn_disabled' : ''}`;
 
@@ -76,7 +76,7 @@ function Register (props) {
         <div className='form'>
           <span className='form__desc'>Пароль</span>
           <input
-            name='password' className='form__input form__input_type_error' placeholder='введите пароль' type='password'
+            name='password' className='form__input' placeholder='введите пароль' type='password'
             {...register('password', {
               ...validators,
               minLength: {

@@ -6,14 +6,14 @@ function Techs () {
       </div>
       <h2 className='techs__title'> 7 технологий</h2>
       <p className='techs__subtitle'>На курсе веб-разработки мы освоили технологии, которые применили в дипломном проекте.</p>
-      <div className='techs__links'>
-        <a className='techs__link' href='#'>HTML</a>
-        <a className='techs__link' href='#'>CSS</a>
-        <a className='techs__link' href='#'>JS</a>
-        <a className='techs__link' href='#'>React</a>
-        <a className='techs__link' href='#'>Git</a>
-        <a className='techs__link' href='#'>Express.js</a>
-        <a className='techs__link' href='#'>MongoDB</a>
+      <div className='techs__icons'>
+        <p className='techs__icon'>HTML</p>
+        <p className='techs__icon'>CSS</p>
+        <p className='techs__icon'>JS</p>
+        <p className='techs__icon'>React</p>
+        <p className='techs__icon'>Git</p>
+        <p className='techs__icon'>Express.js</p>
+        <p className='techs__icon'>MongoDB</p>
       </div>
     </div>
   );

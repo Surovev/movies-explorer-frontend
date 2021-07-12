@@ -4,7 +4,6 @@ import Header from '../Header/Header.js';
 import Footer from '../Footer/Footer.js';
 import getInitialMovies from '../../utils/MoviesApi.js';
 import { getSavedMovies } from '../../utils/MainApi.js';
-// import { setUserInfo, addMovie, deleteMovie, getSavedMovies } from '../../utils/MainApi.js';
 
 import React, { useEffect, useRef, useState } from 'react';
 
@@ -46,16 +45,6 @@ function Movies (props) {
     }
   }, [searchQuery]);
 
-  // const renderMovies = () => {
-  //   /*
-  //     Begin by setting loading = true, and use the callback function
-  //     of setState() to make the ajax request. Set loading = false after
-  //     the request completes.
-  //   */
-  //   this.setState({ loading: true }, () => {
-  //   });
-  // };
-
   if (searchQuery !== '') {
     props.setLoading(true);
     filtered = movies.filter(item => {
@@ -78,7 +67,7 @@ function Movies (props) {
       {filtered.length !== 0 && errorText !== '' ? <MoviesCardList
         savedMovies={props.savedMovies}
         movies={filtered}
-      /> : <h3 className='movies-card-list__error'>{errorText}</h3>}
+                                                   /> : <h3 className='movies-card-list__error'>{errorText}</h3>}
       <Footer />
     </div>
   );

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import MoviesCardList from '../MoviesCardList/MoviesCardList.js';
 import SearchForm from '../SearchForm/SearchForm.js';
 import Header from '../Header/Header.js';
@@ -11,7 +11,6 @@ function SavedMovies (props) {
   const [movies, setMovies] = React.useState([]);
   const [shortFilms, setShortFilms] = React.useState(false);
   const [searchQuery, setSearchQuery] = React.useState('');
-
 
   useEffect(() => {
     getSavedMovies().then((data) => {
@@ -42,12 +41,6 @@ function SavedMovies (props) {
       <MoviesCardList
         savedMovies={props.savedMovies}
         movies={filtered}
-        // setMovies={props.setMovies}
-        // searchingResult={searchingResult}
-        // pageContent={pageContent}
-        // btn={deleteBtn}
-        // setResultCount={setResultCount}
-        // resultCount={resultCount}
       />
       <Footer />
     </div>

@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useForm } from 'react-hook-form';
 
 import Tumb from '../Tumb/Tumb.js';
 
 function SearchForm ({ setShortFilms, setSearchQuery }) {
-  const { register, handleSubmit, formState: { isSubmitting, isDirty, isValid, errors } } = useForm({ mode: 'onChange' });
+  const { register, handleSubmit, formState: { isDirty, isValid, errors } } = useForm({ mode: 'onChange' });
 
   const submitButtonClassName = `search-form__submit-btn ${!isDirty || !isValid ? 'search-form__submit-btn_disabled' : ''}`;
 
