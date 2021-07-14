@@ -69,7 +69,8 @@ function Profile (props) {
             />
             {errors.email && (<span className='form__desc profile-input-error form__desc_type_error'>{errors.email.message}</span>)}
           </div>
-
+          <p className='profile__error-message'>{props.onError}</p>
+          <p className='profile__submit-message'>{props.submitMessage}</p>
         </div>
         <div className='profile__links'>
           <button className={submitButtonClassName} disabled={!isDirty || !isValid} onClick={handleSubmit(onSubmit)}>Редактировать</button>

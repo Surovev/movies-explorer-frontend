@@ -1,11 +1,12 @@
 import React from 'react';
 import { addMovie, deleteMovie } from '../../utils/MainApi.js';
-import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
-function Movie (props) {
-  const currentUser = React.useContext(CurrentUserContext);
-
-  const [isLiked, setIsLiked] = React.useState(props.movie.owner === currentUser._id);
+function Movie ({
+  savedMovies,
+  movie,
+  image
+}) {
+  const [isLiked, setIsLiked] = React.useState(movie.saved);
   const movieLikeButtonClassName = `btn btn_type_like ${isLiked ? 'is-active' : ''}`;
   const [deleted, setDeleted] = React.useState(false);
 
@@ -22,25 +23,25 @@ function Movie (props) {
 
   function toggleLike () {
     if (isLiked === false) {
-      addMovie(props.movie).then(data => setIsLiked(true)).catch(error => console.log(error));
+      addMovie(movie).then(data => setIsLiked(true)).catch(error => console.log(error));
     } else {
-      deleteMovie(props.movie.id).then(data => { console.log(data); setIsLiked(false); }).catch(error => console.log(error));
+      deleteMovie(movie.id).then(data => { console.log(data); setIsLiked(false); }).catch(error => console.log(error));
     }
   }
 
   function toggleDelete () {
-    deleteMovie(props.movie.movieId).then(data => { console.log(data); setDeleted(true); }).catch(error => console.log(error));
+    deleteMovie(movie.movieId).then(data => { console.log(data); setDeleted(true); }).catch(error => console.log(error));
   }
   if (deleted) { return false; }
   return (
     <div className='movie'>
-      <a className='movie__trailer-link' href={props.link} />
-      <img className='movie__img' alt='movie' src={`${!props.savedMovies ? ' https://api.nomoreparties.co' + props.image : props.movie.image}`} />
+      <a className='movie__trailer-link' href={movie.trailerLink} />
+      <img className='movie__img' alt='movie' src={`${!savedMovies ? ' https://api.nomoreparties.co' + image : movie.image}`} />
       <div className='movie__bottom-part'>
-        <p className='movie__subtitle'>{props.nameRU}</p>
-        {props.savedMovies ? deleteBtn : likeBtn}
+        <p className='movie__subtitle'>{movie.nameRU}</p>
+        {savedMovies ? deleteBtn : likeBtn}
       </div>
-      <p className='movie__duration'>{props.duration}m</p>
+      <p className='movie__duration'>{movie.duration}m</p>
     </div>
   );
 }

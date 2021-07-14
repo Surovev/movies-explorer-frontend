@@ -1,10 +1,11 @@
 
 import React from 'react';
 
-const Tumb = ({ onChange }) => {
+const Tumb = ({ onChange, value }) => {
   return (
     <>
       <input
+        defaultChecked={value}
         onInput={(evt) => onChange(evt.target.checked)}
         className='tumb-checkbox'
         id='tumb-new'

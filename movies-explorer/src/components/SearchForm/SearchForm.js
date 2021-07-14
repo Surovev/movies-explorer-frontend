@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 
 import Tumb from '../Tumb/Tumb.js';
 
-function SearchForm ({ setShortFilms, setSearchQuery }) {
+function SearchForm ({ setShortFilms, setSearchQuery, shortFilms, searchQuery }) {
   const { register, handleSubmit, formState: { isDirty, isValid, errors } } = useForm({ mode: 'onChange' });
 
   const submitButtonClassName = `search-form__submit-btn ${!isDirty || !isValid ? 'search-form__submit-btn_disabled' : ''}`;
@@ -16,7 +16,7 @@ function SearchForm ({ setShortFilms, setSearchQuery }) {
     <div className='search-form'>
       <form className='search-form__input-wrap' onSubmit={handleSubmit((data) => { setSearchQuery(data.film); })}>
         <input
-          name='film' className='search-form__input' type='text' placeholder='Фильм'
+          name='film' className='search-form__input' type='text' placeholder='Фильм' defaultValue={searchQuery}
           {...register('film', {
             ...validators
           })}
@@ -27,6 +27,7 @@ function SearchForm ({ setShortFilms, setSearchQuery }) {
       <div className='search-form__check-box'>
         <Tumb
           onChange={setShortFilms}
+          value={shortFilms}
         />
         <label className='search-form__tumb-label'>Короткометражки</label>
 

@@ -79,7 +79,15 @@
     transition: .3s;
 }
 
-.profile__link_disabled {}
+.profile__submit-message {
+    text-align: center;
+    color: #2BE080;
+}
+
+.profile__error-message {
+    text-align: center;
+    color: #FF004D;
+}
 
 .profile__link_is-red {
     color: #FF004D;

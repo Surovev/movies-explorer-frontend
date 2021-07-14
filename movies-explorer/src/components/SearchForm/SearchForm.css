@@ -28,6 +28,10 @@
     padding: 0 22px;
 }
 
+.search-form__input:focus-visible {
+    outline: none;
+}
+
 .search-form__submit-btn {
     font-size: 11px;
     line-height: 18px;

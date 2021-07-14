@@ -3,32 +3,21 @@ import MoviesCardList from '../MoviesCardList/MoviesCardList.js';
 import SearchForm from '../SearchForm/SearchForm.js';
 import Header from '../Header/Header.js';
 import Footer from '../Footer/Footer.js';
-import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import { getSavedMovies } from '../../utils/MainApi.js';
 
 function SavedMovies (props) {
-  const currentUser = React.useContext(CurrentUserContext);
-  const [movies, setMovies] = React.useState([]);
   const [shortFilms, setShortFilms] = React.useState(false);
   const [searchQuery, setSearchQuery] = React.useState('');
+  const shortFilmLength = 40;
 
   useEffect(() => {
     getSavedMovies().then((data) => {
-      const myMovies = [];
-      data.map((item) => {
-        if (item.owner === currentUser._id) {
-          myMovies.push(item);
-        } else {
-
-        }
-      });
-      console.log(myMovies);
-      setMovies(myMovies);
+      props.setMyMovies(data);
     }).catch(err => console.log(err));
   }, []);
 
-  const filtered = movies.filter(item => {
-    return item.nameRU.toLowerCase().includes(searchQuery.toLowerCase()) && (!shortFilms || item.duration <= 40);
+  const filtered = props.myMovies.filter(item => {
+    return item.nameRU.toLowerCase().includes(searchQuery.toLowerCase()) && (!shortFilms || item.duration <= shortFilmLength);
   });
 
   return (
@@ -41,6 +30,7 @@ function SavedMovies (props) {
       <MoviesCardList
         savedMovies={props.savedMovies}
         movies={filtered}
+
       />
       <Footer />
     </div>

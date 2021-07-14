@@ -8,12 +8,11 @@ import { getSavedMovies } from '../../utils/MainApi.js';
 import React, { useEffect, useRef, useState } from 'react';
 
 function Movies (props) {
-  const [shortFilms, setShortFilms] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
   const [movies, setMovies] = useState([]);
   let filtered = [];
   const loaded = useRef();
   let errorText = ' ';
+  const shortFilmLength = 40;
 
   const processMovies = (movies) => {
     getSavedMovies().then(data => {
@@ -28,7 +27,7 @@ function Movies (props) {
   };
 
   useEffect(() => {
-    if (searchQuery !== '' && !loaded.current) {
+    if (props.searchQuery !== '' && !loaded.current) {
       loaded.current = true;
 
       try {
@@ -43,70 +42,37 @@ function Movies (props) {
         errorText = 'Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз';
       });
     }
-  }, [searchQuery]);
+  }, [props.searchQuery]);
 
-  if (searchQuery !== '') {
-    props.setLoading(true);
+  if (props.searchQuery !== '') {
+    // props.setLoading(true);
     filtered = movies.filter(item => {
-      return item.nameRU.toLowerCase().includes(searchQuery.toLowerCase()) && (!shortFilms || item.duration <= 40);
+      return item.nameRU.toLowerCase().includes(props.searchQuery.toLowerCase()) && (!props.shortFilms || item.duration <= shortFilmLength);
     });
     if (filtered.length === 0) {
       errorText = 'Ничего не найдено';
-      props.setLoading(false);
     }
-    props.setLoading(false);
   }
 
   return (
     <div className='movies'>
       <Header authUser={props.authUser} />
       <SearchForm
-        setShortFilms={setShortFilms}
-        setSearchQuery={setSearchQuery}
+        setShortFilms={props.setShortFilms}
+        setSearchQuery={props.setSearchQuery}
+        searchQuery={props.searchQuery}
+        shortFilms={props.shortFilms}
+
       />
-      {filtered.length !== 0 && errorText !== '' ? <MoviesCardList
-        savedMovies={props.savedMovies}
-        movies={filtered}
-                                                   /> : <h3 className='movies-card-list__error'>{errorText}</h3>}
+      {filtered.length !== 0 && errorText !== ''
+        ? <MoviesCardList
+          savedMovies={props.savedMovies}
+          movies={filtered}
+        />
+        : <h3 className='movies-card-list__error'>{errorText}</h3>}
       <Footer />
     </div>
   );
 }
 
 export default Movies;
-
-// function handleSearch (query, shortOnly) {
-//   getInitialMovies().then((data) => {
-//     props.setMovies(data);
-
-//   }).then(() => {
-//     setMovies(props.movies.filter(item => {
-//       // if (!shortFilms) {
-//       return item.nameRU.toLowerCase().includes(values.film.toLowerCase());
-//       // }
-//       // if (shortFilms) {
-//       //   return item.nameRU.toLowerCase().includes(values.film.toLowerCase()) && item.duration <= 40;
-//       // } else {
-//       //   return console.log('чет сломалось');
-//       // }
-//     }));
-//   })
-//     .catch((error) => {
-//       console.log(error);
-//     });
-//   const movies = handleSearch(query, shortFilms);
-
-//   console.log(props.searchingResult);
-// }
-
-//   React.useEffect(() => {
-//     getInitialMovies().then((data) => {
-//       props.setMovies(data);
-//       console.log('фильмы = ' + props.movies);
-//     })
-//       .catch((error) => {
-//         console.log(error);
-//       });
-//   }, []);
-
-// const movies = shortFilms ? searchingResult.slice(0, resultCount).filter(item => item.duration <= 40) : searchingResult.slice(0, resultCount);

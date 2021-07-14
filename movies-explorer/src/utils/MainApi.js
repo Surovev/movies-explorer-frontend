@@ -96,6 +96,5 @@ export const getSavedMovies = () => {
     headers: {
       Authorization: `Bearer ${token}`
     }
-
   }).then(checkResponse);
 };
