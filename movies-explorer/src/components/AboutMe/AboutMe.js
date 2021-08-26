@@ -1,3 +1,5 @@
+import avatar from '../../images/avatar.jpg';
+
 function AboutMe () {
   return (
     <div id='about-me' className='about-me'>
@@ -9,10 +11,8 @@ function AboutMe () {
           <h3 className='about-me__title'>Дмитрий</h3>
           <p className='about-me__subtitle'>Фронденд-разработчик, 30 лет.</p>
           <p className='about-me__desc'>
-                Я родился и живу в Саратове, закончил факультет экономики СГУ. У меня есть жена
-                и дочь. Я люблю слушать музыку, а ещё увлекаюсь бегом. Недавно начал кодить.
-                С 2015 года работал в компании «СКБ Контур». После того, как прошёл курс по веб-разработке,
-                начал заниматься фриланс-заказами и ушёл с постоянной работы.
+                Я родился и вырос в Московской области, 6 лет назад переехал в Сочи. Увлекаюсь горным велосипедом и лыжами. Пару лет назад решил погрузиться в мир IT.
+                В 2021 году окончил курс по веб-разработке яндека практикум, параллельно работал и развивался в фрилансе.
           </p>
           <div className='about-me__social-links'>
             <a href='https://www.facebook.com/dmitrii.alabam.7' className='about-me__social-link'>Facebook</a>
@@ -20,7 +20,7 @@ function AboutMe () {
           </div>
         </div>
         <div className='about-me__img-wrapper'>
-          <img className='about-me__img' src='http://placekitten.com/276/344' alt='avatar' />
+          <img className='about-me__img' src={avatar} alt='avatar' />
         </div>
       </div>
     </div>

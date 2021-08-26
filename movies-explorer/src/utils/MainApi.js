@@ -7,7 +7,7 @@ export const setAuthToken = (t) => {
   token = t;
 };
 
-const BASE_URL = 'https://api.surovev-diploma.nomoredomains.monster';
+const BASE_URL = 'http://localhost:3003';
 
 export const register = ({ name, password, email }) => {
   return fetch(`${BASE_URL}/signup`, {

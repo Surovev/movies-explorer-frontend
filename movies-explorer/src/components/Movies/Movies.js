@@ -14,6 +14,10 @@ function Movies (props) {
   let errorText = ' ';
   const shortFilmLength = 40;
 
+  const loaderSwitchOff = () => {
+    props.setLoading(false)
+  }
+
   const processMovies = (movies) => {
     getSavedMovies().then(data => {
       props.setLoading(true);
@@ -22,7 +26,8 @@ function Movies (props) {
         movie.saved = savedIds.includes(movie.id);
       });
       setMovies(movies);
-      props.setLoading(false);
+      setTimeout(loaderSwitchOff , 300)
+      
     }).catch(err => console.log(err));
   };
 
