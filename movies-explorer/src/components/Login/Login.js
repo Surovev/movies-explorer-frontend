@@ -55,7 +55,7 @@ function Login (props) {
         <div className='form'>
           <span className='form__desc'>Пароль</span>
           <input
-            name='password' className='form__input form__input_type_error' placeholder='введите пароль' type='password'
+            name='password' className='form__input' placeholder='введите пароль' type='password'
             {...register('password', {
               ...validators,
               minLength: {

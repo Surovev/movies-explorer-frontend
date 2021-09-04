@@ -1,7 +1,7 @@
 import checkResponse from './checkResponse.js';
 
 const getInitialMovies = (token) => {
-  return fetch('https://api.nomoreparties.co/beatfilm-movies', {
+  return fetch(`${process.env.PUBLIC_URL + "/response.json"}`, {
     method: 'GET',
     headers: {
     //   Authorization: `Bearer ${token}`
@@ -10,5 +10,6 @@ const getInitialMovies = (token) => {
     .then(checkResponse);
 }
 ;
+
 
 export default getInitialMovies;

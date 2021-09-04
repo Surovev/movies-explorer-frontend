@@ -36,7 +36,7 @@ function Movie ({
   return (
     <div className='movie'>
       <a className='movie__trailer-link' href={movie.trailerLink} />
-      <img className='movie__img' alt='movie' src={`${!savedMovies ? ' https://api.nomoreparties.co' + image : movie.image}`} />
+      <img className='movie__img' alt='movie' src={image} />
       <div className='movie__bottom-part'>
         <p className='movie__subtitle'>{movie.nameRU}</p>
         {savedMovies ? deleteBtn : likeBtn}

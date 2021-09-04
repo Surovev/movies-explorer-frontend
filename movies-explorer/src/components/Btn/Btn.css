@@ -50,6 +50,24 @@
 }
 
 
+.btn_type_clear {
+    background-repeat: no-repeat;
+    position: absolute;
+    right: 70px;
+    top: 8px;
+    width: 34px;
+    height: 34px;
+    background-image: url(../../images/delete-icon.svg);
+    background-position: center;
+    opacity: .3;
+    border-radius: 50%;
+
+}
+
+
+.btn_type_clear:hover {
+    opacity: 1;
+}
 
 
 .btn_type_like.is-active {

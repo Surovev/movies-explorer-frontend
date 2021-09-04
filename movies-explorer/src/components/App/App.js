@@ -75,6 +75,7 @@ function App () {
         }
       });
     }
+   window.localStorage.removeItem('MOVIES');
   }, [loggedIn]);
 
   const handleRegister = ({ name, password, email }) => {

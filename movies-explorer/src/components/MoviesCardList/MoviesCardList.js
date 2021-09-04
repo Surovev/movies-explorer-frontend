@@ -49,7 +49,7 @@ function MoviesCardList (
           <Movie
             savedMovies={savedMovies}
             movie={item}
-            key={item.id || item.movieId} image={item.image.url}
+            key={item.id || item.movieId} image={item.image.url || item.image}
           />))}
 
       </div>

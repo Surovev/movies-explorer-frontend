@@ -50,12 +50,21 @@ function Movies (props) {
   }, [props.searchQuery]);
 
   if (props.searchQuery !== '') {
-    // props.setLoading(true);
     filtered = movies.filter(item => {
       return item.nameRU.toLowerCase().includes(props.searchQuery.toLowerCase()) && (!props.shortFilms || item.duration <= shortFilmLength);
     });
     if (filtered.length === 0) {
       errorText = 'Ничего не найдено';
+    }
+  }
+
+  if (props.searchQuery === '') {
+    filtered = movies.filter(item => {
+      return  !props.shortFilms || item.duration <= shortFilmLength;
+    });
+    if (filtered.length === 0) {
+      errorText = 'Ничего не найдено';
+      
     }
   }
 
