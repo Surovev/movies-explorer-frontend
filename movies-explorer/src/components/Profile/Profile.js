@@ -33,7 +33,7 @@ function Profile (props) {
       <Header />
       <div className='profile'>
 
-        <h2 className='profile__title'>Привет, {currentUser.name}</h2>
+        <h2 className='profile__title'>Привет, {currentUser.name }</h2>
         <div className='profile__info'>
           <div className='profile__info-row'>
             <p className='profile__info-item'>Имя</p>

@@ -33,7 +33,7 @@ function App () {
   React.useEffect(() => {
     if (loggedIn) {
       getContent().then(({ data }) => {
-        setCurrentUser(data);
+      setCurrentUser(data);
       })
         .catch((error) => {
           console.log(error);

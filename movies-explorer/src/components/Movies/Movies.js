@@ -18,6 +18,12 @@ function Movies (props) {
     props.setLoading(false)
   }
 
+  const clearFilters = (evt) => {
+    evt.preventDefault();
+    props.setShortFilms( false);
+    props.setSearchQuery( '');
+  }
+
   const processMovies = (movies) => {
     getSavedMovies().then(data => {
       props.setLoading(true);
@@ -32,7 +38,7 @@ function Movies (props) {
   };
 
   useEffect(() => {
-    if (props.searchQuery !== '' && !loaded.current) {
+    if ( !loaded.current) {
       loaded.current = true;
 
       try {
@@ -57,8 +63,7 @@ function Movies (props) {
       errorText = 'Ничего не найдено';
     }
   }
-
-  if (props.searchQuery === '') {
+  else {
     filtered = movies.filter(item => {
       return  !props.shortFilms || item.duration <= shortFilmLength;
     });
@@ -83,7 +88,7 @@ function Movies (props) {
           savedMovies={props.savedMovies}
           movies={filtered}
         />
-        : <h3 className='movies-card-list__error'>{errorText}</h3>}
+        : <h3 className='movies-card-list__error'>{errorText} <a href="#" className='movies-card-list__reset' onClick={clearFilters}>Сбросить фильтры</a></h3>}
       <Footer />
     </div>
   );

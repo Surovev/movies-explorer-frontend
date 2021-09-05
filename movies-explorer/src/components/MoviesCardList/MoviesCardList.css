@@ -8,13 +8,25 @@
 }
 
 .movies-card-list__error {
-    display: block;
+    display: flex;
+    flex-direction: column;
     text-align: center;
     margin: 30px auto;
     font-size: 24px;
     font-weight: 500;
 }
 
+
+.movies-card-list__reset {
+    margin-top: 16px;
+    font-size: 18px;
+    color: #000000;
+    transition: .3s;
+}
+
+.movies-card-list__reset:hover {
+    opacity: .3;
+}
 
 
 @media screen and (max-width: 1279px) {
