@@ -1,18 +1,18 @@
 
 import React from 'react';
 
-const Tumb = ({ isOn, handleToggle }) => {
+const Tumb = ({ onChange, value }) => {
   return (
     <>
       <input
-        checked={isOn}
-        onChange={handleToggle}
+        defaultChecked={value}
+        onInput={(evt) => onChange(evt.target.checked)}
         className='tumb-checkbox'
         id='tumb-new'
         type='checkbox'
       />
       <label
-        style={{ background: isOn && '#06D6A0' }}
+        style={{ background: false && '#06D6A0' }}
         className='tumb-label'
         htmlFor='tumb-new'
       >

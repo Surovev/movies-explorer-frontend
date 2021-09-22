@@ -3,8 +3,15 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #073042;
     padding: 0 70px;
+}
+
+.promo__auth_hidden {
+    display: none;
+}
+
+.promo__navigation_hidden {
+    display: none;
 }
 
 
@@ -70,29 +77,30 @@
     height: 14px;
 }
 
+
+
 .promo__main {
-    background-color: #073042;
-    min-height: 524px;
+    margin: 20px 40px 0;
+    border-radius: 10px;
+    background-color: #F5F5F5;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    background-image: url(../../images/promo-background.svg);
-    background-repeat: no-repeat;
-    background-position: center;
 }
 
 .promo__title {
-    color: #ffffff;
+    color: #000000;
     font-size: 50px;
     line-height: 58px;
     font-weight: 400;
+    letter-spacing: -4%;
     max-width: 730px;
     text-align: center;
-    margin: 0 auto;
+    margin: 160px auto 150px;
 }
 
 .promo__nav-bar {
-    background-color: #000000;
-    width: 100%;
+    background-color: #F5F5F5;
     display: flex;
     justify-content: space-around;
 }
@@ -103,16 +111,59 @@
 }
 
 .promo__nav-link {
-    font-size: 13px;
-    line-height: 16px;
+    text-align: center;
+    min-width: 96px;
+    height: 36px;
+    border-radius: 10px;
+    font-size: 12px;
+    line-height: 36px;
     font-weight: 500;
     color: #ffffff;
+    background-color: #E8E8E8;
     text-decoration: none;
-    border-bottom: solid 1px #ffffff;
-    margin: 0 20px;
-    transition: .3s;
+    margin: 0 5px;
 }
 
 .promo__nav-link:hover {
-    opacity: .5;
+    opacity: .3;
+    color: #000000;
+}
+
+@media screen and (max-width: 1023px) {
+    .promo__header {
+        padding: 0 30px;
+    }
+
+    .promo__main {
+        margin: 14px 14px 0;
+    }
+}
+
+/* Фон блока пропадает на разрешении менее 768px согласно макету */
+
+@media screen and (max-width: 767px) {
+    .promo__title {
+        font-size: 27px;
+        line-height: 37px;
+    }
+
+    .promo__main {
+        margin: 0 5px;
+        background-color: #ffffff;
+    }
+
+    .promo__nav-link {
+        font-size: 10px;
+        margin: 0 2.5px;
+        width: 82px;
+    }
+
+    .promo__nav-wrap {
+        padding: 0;
+        background-color: #ffffff;
+    }
+
+    .promo__header {
+        padding: 0 14px;
+    }
 }

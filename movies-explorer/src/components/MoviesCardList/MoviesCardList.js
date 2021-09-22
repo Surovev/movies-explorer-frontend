@@ -1,77 +1,59 @@
-import film from '../../images/film.jpg';
 import React from 'react';
+import Movie from '../Movie/Movie.js';
+import { useMediaQuery } from 'react-responsive';
 
-function MoviesCardList () {
-  // времееное решение для лайка
-  const [isLiked, setIsLiked] = React.useState(false);
-  const movieLikeButtonClassName = `btn btn_type_like ${isLiked ? 'is-active' : ''}`;
+function MoviesCardList (
+  {
+    savedMovies,
+    movies
+  }) {
+  let firstResult;
+  let moreResult;
 
-  function toggleLike () {
-    if (isLiked === false) {
-      setIsLiked(true);
-    } else {
-      setIsLiked(false);
+  if (useMediaQuery({ query: '(min-width: 1279px)' })) {
+    if (!savedMovies) {
+      firstResult = 16;
+      moreResult = 4;
+    }
+  }
+  if (useMediaQuery({ query: '(max-width: 1279px)' })) {
+    if (!savedMovies) {
+      firstResult = 12;
+      moreResult = 3;
+    }
+  }
+  if (useMediaQuery({ query: '(max-width: 1023px)' })) {
+    if (!savedMovies) {
+      firstResult = 8;
+      moreResult = 2;
+    }
+  }
+  if (useMediaQuery({ query: '(max-width: 767px)' })) {
+    if (!savedMovies) {
+      firstResult = 5;
+      moreResult = 1;
     }
   }
 
-  // времееное решение для лайка
+  const [resultCount, setResultCount] = React.useState(firstResult);
+  const moreBtnClassName = `btn btn_type_long ${savedMovies || resultCount >= movies.length ? 'hidden' : ''}`;
+
+  const moreResultHendler = () => {
+    setResultCount(resultCount + moreResult);
+  };
 
   return (
     <div className='movies-card-list'>
       <div className='movies-card-list__wrap'>
-        <div className='movie'>
-          <img className='movie__img' src={film} />
-          <div className='movie__bottom-part'>
-            <p className='movie__subtitle'>33 Коровы и 12 утят гуляют где хотят 33 Коровы и 12 утят гуляют где хотят</p>
-            <div className='movie__like' onClick={toggleLike}>
-              <button className={movieLikeButtonClassName} />
-            </div>
-          </div>
-          <p className='movie__duration'>1h24m</p>
-        </div>
+        {movies.slice(0, resultCount).map(item => (
+          <Movie
+            savedMovies={savedMovies}
+            movie={item}
+            key={item.id || item.movieId} image={item.image.url || item.image}
+          />))}
 
-        <div className='movie'>
-          <img className='movie__img' src={film} />
-          <div className='movie__bottom-part'>
-            <p className='movie__subtitle'>33 Коровы и 12 утят</p>
-            <div className='movie__like' onClick={toggleLike}>
-              <button className={movieLikeButtonClassName} />
-            </div>
-          </div>
-          <p className='movie__duration'>1h24m</p>
-        </div>
-        <div className='movie'>
-          <img className='movie__img' src={film} />
-          <div className='movie__bottom-part'>
-            <p className='movie__subtitle'>33 Коровы и 12 утят</p>
-            <div className='movie__like' onClick={toggleLike}>
-              <button className={movieLikeButtonClassName} />
-            </div>
-          </div>
-          <p className='movie__duration'>1h24m</p>
-        </div>
-        <div className='movie'>
-          <img className='movie__img' src={film} />
-          <div className='movie__bottom-part'>
-            <p className='movie__subtitle'>33 Коровы и 12 утят гуляют где хотят</p>
-            <div className='movie__like' onClick={toggleLike}>
-              <button className={movieLikeButtonClassName} />
-            </div>
-          </div>
-          <p className='movie__duration'>1h24m</p>
-        </div>
-        <div className='movie'>
-          <img className='movie__img' src={film} />
-          <div className='movie__bottom-part'>
-            <p className='movie__subtitle'>33 Коровы и 12 утят</p>
-            <div className='movie__like' onClick={toggleLike}>
-              <button className={movieLikeButtonClassName} />
-            </div>
-          </div>
-          <p className='movie__duration'>1h24m</p>
-        </div>
       </div>
-      <button className='btn btn_type_long'>Ещё</button>
+      <button className={moreBtnClassName} onClick={moreResultHendler}>Ещё</button>
     </div>
   );
 }

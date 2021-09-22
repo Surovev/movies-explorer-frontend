@@ -5,6 +5,10 @@
     justify-content: space-between;
 }
 
+.header__auth.hidden {
+    display: none;
+}
+
 .header_type_auth {
     background-color: #073042;
     margin: 0 -70px;
@@ -16,73 +20,46 @@
     height: 38px;
 }
 
+.header__logo:hover {
+    cursor: pointer;
+}
+
 .header__info {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.header__user-info {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-left: 10px;
 
-}
 
-.header__user-info:hover {
-    cursor: pointer;
-    opacity: .6;
-    transition: .3s;
-}
 
 .header__user-info.hidden {
     display: none;
 }
 
 
-.header__link {
-    display: block;
-    text-decoration: none;
-    color: #000;
-    font-size: 14px;
-    line-height: 18px;
-    font-weight: 400;
-    margin: 0 10px;
 
-}
-
-.header__link:hover {
-    opacity: .6;
-    transition: .3s;
-}
-
-.header__user-icon-wrap {
-    width: 26px;
-    height: 30px;
-    background-color: #f5f5f5;
-    border-radius: 3px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-}
-
-.header__user-icon {
-    width: 11.5px;
-    height: 14px;
-}
 
 .btn_type_auth {
     min-width: 76px;
     min-height: 32px;
-    color: #FFFFFF;
-    background-color: #073042;
+    color: #000000;
+    background-color: #FFFFFF;
     border-radius: 3px;
     transition: .3s;
     margin-left: 10px;
 }
 
 .btn_type_auth:hover {
-    color: #000000;
-    background-color: #2BE080;
+    color: #FFFFFF;
+    background-color: #000000;
+}
+
+@media screen and (max-width: 767px) {
+    .btn_type_auth {
+        font-size: 10px;
+        line-height: 16px;
+        min-width: 54px;
+        min-height: 26px;
+    }
 }
